@@ -1,0 +1,25 @@
+li s2, 12 #number of which factorial is required
+li s3, 1 #predefined one for loop increment
+li s4, 1 #factorial's predefined value
+blt s2,x0,condition1
+beq s2,x0,condition2
+addi s2,s2,1
+blt s3,s2,loop
+loop:
+mul s4, s4, s3
+addi s3,s3,1
+blt s3,s2,loop
+li a0,1
+mv a1,s4
+ecall
+j end
+condition2:
+li a0,1
+li a1,1
+ecall
+j end
+condition1:
+li a0,1
+li a1,0
+ecall
+end:
